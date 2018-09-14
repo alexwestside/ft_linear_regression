@@ -1,4 +1,7 @@
 
+BINTRAINE=ft_linear_regression_train
+BINPREDICT=ft_linear_regression_predict
+
 NAME=ft_linear_regression
 MAKETRAINE=../ft_linear_regression_train
 MAKEPREDICT=../ft_linear_regression_predict
@@ -17,7 +20,11 @@ build:
 	mkdir bin
 	mkdir data
 	cd $(MAKETRAINE); make all
-	cd $(MAKETRAINE); make all
+	cd $(MAKEPREDICT); make all
+
+re:
+	clean
+	all
 
 docker-build:
 	@echo "Docker build service..."
@@ -33,6 +40,6 @@ run:
 
 clean:
 	@echo "Clean"
-	docker stop $(docker ps -a)
-	docker rm $(docker ps -qa -f status=exited)
-	docker rmi $(docker images -q)
+	rm -rf ./bin
+	rm -rf ./data
+	docker rmi -f $(docker images -q)

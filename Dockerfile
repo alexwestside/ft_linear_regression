@@ -1,12 +1,13 @@
 FROM golang:latest
 
-RUN apt-get update & apt-get install vim
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y vim && \
+    apt-get install -y imagemagick && \
+    apt-get clean
 
 WORKDIR ft_linear_regression
 
-CMD mkdir graphs
-CMD mkdir dataset
-CMD mkdir bin
+RUN mkdir graphs
 
 ADD ./bin/./ft_linear_regression_train ./bin/
 ADD ./bin/./ft_linear_regression_predict ./bin/
