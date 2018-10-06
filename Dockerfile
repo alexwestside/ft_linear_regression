@@ -9,8 +9,9 @@ WORKDIR ft_linear_regression
 
 RUN mkdir graphs
 
-ADD ./bin/./ft_linear_regression_train ./bin/
-ADD ./bin/./ft_linear_regression_predict ./bin/
-ADD ./data/data.csv ./data/
+COPY bin/./ft_linear_regression_train bin/
+COPY bin/./ft_linear_regression_predict bin/
+COPY data/data.csv data/
+COPY README.md .
 
 ENTRYPOINT /bin/bash

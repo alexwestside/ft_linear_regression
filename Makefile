@@ -18,13 +18,10 @@ all: build docker-build
 build:
 	@echo "Build Train and Predict services..."
 	mkdir bin
-	mkdir data
+	mkdir graphs
 	cd $(MAKETRAINE); make all
 	cd $(MAKEPREDICT); make all
 
-re:
-	clean
-	all
 
 docker-build:
 	@echo "Docker build service..."
@@ -35,11 +32,13 @@ run:
 	$(DOCKERRUN) \
 	--rm \
 	-it \
+	-v $(PWD)/graphs:/go/ft_linear_regression/graphs \
 	--name=$(NAME) \
 	$(NAME)
 
 clean:
 	@echo "Clean"
 	rm -rf ./bin
-	rm -rf ./data
-	docker rmi -f $(docker images -q)
+	rm -rf ./graphs
+
+re: clean all
