@@ -30,7 +30,7 @@ III. CLI commands:
         * help
         * predict
         
-    3. Common flgs:
+    3. Common flags:
         * --h help for app
         * --t read target
         * --i read independent variable
