@@ -10,7 +10,7 @@ I. Description:
         - predict part of project
     * folder graph
     
-II. Command:
+II. Make commands:
     
     * make - build project:
         - build train executeble
@@ -18,4 +18,22 @@ II. Command:
         - build docker image with all needed dependencies
     * make run:
         - run docker image project
+        
+III. CLI commands:
+    
+    1. CLI Train:
+        * help
+        * train
+        * view
+    
+    2. CLI Predict:
+        * help
+        * predict
+        
+    3. Common flgs:
+        * --h help for app
+        * --t read target
+        * --i read independent variable
+
+    
     
